@@ -31,8 +31,11 @@ export function generateStaticParams() {
   return generateStaticSlugs('page')
 }
 
-export default async function PageSlugRoute({ params }: Props) {
-  const initial = await loadPage(params.slug)
+export default async function PageSlugRoute({ params }) {
+
+  const slug = await params.slug
+
+  const initial = await loadPage(slug)
   const draft = await draftMode()
 
   if (draft.isEnabled) {

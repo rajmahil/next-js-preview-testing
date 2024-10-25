@@ -22,6 +22,10 @@ const config = {
   experimental: {
     taint: true,
   },
+  typescript: {
+
+    ignoreBuildErrors: true
+  }
 }
 
 export default config

@@ -40,8 +40,12 @@ export function generateStaticParams() {
   return generateStaticSlugs('project')
 }
 
-export default async function ProjectSlugRoute({ params }: Props) {
-  const initial = await loadProject(params.slug)
+export default async function ProjectSlugRoute({ params }) {
+
+  const slug = await params.slug
+
+
+  const initial = await loadProject(slug)
   const draft = await draftMode()
 
   if (draft.isEnabled) {
