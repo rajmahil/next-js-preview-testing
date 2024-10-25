@@ -20,7 +20,9 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const { data: project } = await loadProject(params.slug)
+  const {slug} = await params
+
+  const { data: project } = await loadProject(slug)
   const ogImage = urlForOpenGraphImage(project?.coverImage)
 
   return {
@@ -42,7 +44,7 @@ export function generateStaticParams() {
 
 export default async function ProjectSlugRoute({ params }) {
 
-  const slug = await params.slug
+  const {slug} = await params
 
 
   const initial = await loadProject(slug)

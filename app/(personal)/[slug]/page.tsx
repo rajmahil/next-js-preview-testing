@@ -17,7 +17,8 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const { data: page } = await loadPage(params.slug)
+  const {slug} = await params
+  const { data: page } = await loadPage(slug)
 
   return {
     title: page?.title,
@@ -33,7 +34,7 @@ export function generateStaticParams() {
 
 export default async function PageSlugRoute({ params }) {
 
-  const slug = await params.slug
+  const {slug} = await params
 
   const initial = await loadPage(slug)
   const draft = await draftMode()
