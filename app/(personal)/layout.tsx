@@ -49,6 +49,7 @@ export default async function IndexRoute({
 }: {
   children: React.ReactNode
 }) {
+  const draft = await draftMode()
   return (
     <>
       <div className="flex min-h-screen flex-col bg-white text-black">
@@ -65,7 +66,7 @@ export default async function IndexRoute({
           <IntroTemplate />
         </Suspense>
       </div>
-      {draftMode().isEnabled && <LiveVisualEditing />}
+      {draft.isEnabled && <LiveVisualEditing />}
     </>
   )
 }
