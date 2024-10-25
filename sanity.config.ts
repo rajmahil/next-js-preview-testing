@@ -48,6 +48,7 @@ export default defineConfig({
     structureTool({
       structure: pageStructure([home, settings]),
     }),
+    
     presentationTool({
       resolve,
       previewUrl: {

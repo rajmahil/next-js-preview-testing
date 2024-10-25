@@ -17,6 +17,7 @@ const LiveVisualEditing = dynamic(
 )
 
 export async function generateMetadata(): Promise<Metadata> {
+  
   const [{ data: settings }, { data: homePage }] = await Promise.all([
     loadSettings(),
     loadHomePage(),
